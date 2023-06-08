@@ -31,7 +31,7 @@ jobs:
 
     - name: Build
       shell: bash
-      run: pyinstaller -F app.py --add-data "model/*:."
+      run: pyinstaller -F app.py --add-data "model/*:model"
 
     - name: Upload
       uses: actions/upload-artifact@v2
