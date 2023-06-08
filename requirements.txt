@@ -17,9 +17,7 @@ indic_transliteration
 num_thai
 opencc
 audonnx
-flask==2.2.3
 av
 graiax-silkcoder[libsndfile]
-flask_apscheduler
 fastlid
 pyinstaller

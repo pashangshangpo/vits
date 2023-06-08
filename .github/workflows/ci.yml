@@ -31,7 +31,7 @@ jobs:
 
     - name: Build
       shell: bash
-      run: pyinstaller -F --add-data model/moegoe_config.json --add-data model/G_latest.pth app.py
+      run: pyinstaller -F app.py --add-data "model/*:."
 
     - name: Upload
       uses: actions/upload-artifact@v2
