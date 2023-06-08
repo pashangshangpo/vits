@@ -23,3 +23,4 @@ graiax-silkcoder[libsndfile]
 flask_apscheduler
 fasttext
 fastlid
+pyinstaller

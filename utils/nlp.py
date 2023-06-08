@@ -76,7 +76,7 @@ def sentence_split(text, max=50, lang="auto", speaker_lang=None):
     else:
         sentence_list.append(text)
 
-    for i in sentence_list:
-        logger.debug(i)
+    # for i in sentence_list:
+    #     logger.debug(i)
 
     return sentence_list

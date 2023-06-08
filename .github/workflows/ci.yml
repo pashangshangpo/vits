@@ -1,0 +1,40 @@
+name: Releases
+
+on: [push]
+
+jobs:
+  release:
+    strategy:
+      matrix:
+        include:
+          - os: macos-11
+            name: mac
+            ext: ''
+
+    runs-on: ${{ matrix.os }}
+
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: Set up Python Version
+      uses: actions/setup-python@v2
+      with:
+        python-version: 3.9
+
+    - name: Download bin
+      if: matrix.NAME == 'mac'
+      run: wget -O './model/G_latest.pth' https://lire.oss-cn-hangzhou.aliyuncs.com/ossp/G_latest.pth
+    
+    - name: Install Pip Dependencies
+      shell: bash
+      run: pip install -r requirements.txt
+
+    - name: Build
+      shell: bash
+      run: pyinstaller -F --add-data model/moegoe_config.json --add-data model/G_latest.pth app.py
+
+    - name: Upload
+      uses: actions/upload-artifact@v2
+      with:
+        name: app-${{ matrix.name }}
+        path: dist/app${{ matrix.ext }}

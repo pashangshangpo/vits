@@ -39,7 +39,10 @@ MODEL_LIST = [
 '''
 # load mutiple models
 MODEL_LIST = [
-
+    # [ABS_PATH+"/model/paimon6k/paimon6k_390000.pth", ABS_PATH+"/model/paimon6k/paimon6k.json"]
+    [ABS_PATH+"/model/qiu/G_latest.pth", ABS_PATH+"/model/qiu/moegoe_config.json"]
+    # [ABS_PATH+"/model/nahida/G_420000.pth", ABS_PATH+"/model/nahida/config.json"],
+    # [ABS_PATH+"/model/test/vits_bert_model.pth", ABS_PATH+"/model/test/bert_vits.json", ABS_PATH+"/model/test/prosody_model.pt"],
 ]
 
 """

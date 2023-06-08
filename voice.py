@@ -275,10 +275,10 @@ class TTS:
         self._w2v2_speakers_count = len(self._voice_speakers["W2V2-VITS"])
 
         # Initialization information
-        self.logger = logging.getLogger("vits-simple-api")
-        self.logger.info(f"torch:{torch.__version__} cuda_available:{torch.cuda.is_available()}")
-        self.logger.info(f'device:{device} device.type:{device.type}')
-        self.logger.info(f"Loaded {self._speakers_count} speakers")
+        # self.logger = logging.getLogger("vits-simple-api")
+        # self.logger.info(f"torch:{torch.__version__} cuda_available:{torch.cuda.is_available()}")
+        # self.logger.info(f'device:{device} device.type:{device.type}')
+        # self.logger.info(f"Loaded {self._speakers_count} speakers")
         if self._speakers_count == 0:
             self.logger.warning(f"No model was found")
 
@@ -392,8 +392,8 @@ class TTS:
                                             "emotion": emotion
                                             })
 
-                # 分段末尾停顿0.75s
-                voice_tasks.append({"break": 0.75})
+                # 分段末尾停顿0.5s
+                voice_tasks.append({"break": 0.5})
             elif element.tag == "break":
                 # brk_count大于0说明voice标签中有break
                 if brk_count > 0:
@@ -403,8 +403,8 @@ class TTS:
                                         self.convert_time_string(element.attrib.get("time", "750ms")))
                 voice_tasks.append({"break": brk})
 
-        for i in voice_tasks:
-            self.logger.debug(i)
+        # for i in voice_tasks:
+        #     self.logger.debug(i)
 
         return voice_tasks, format
 
