@@ -21,6 +21,5 @@ flask==2.2.3
 av
 graiax-silkcoder[libsndfile]
 flask_apscheduler
-fasttext
 fastlid
 pyinstaller
